@@ -3,12 +3,12 @@
     "apps": [],
     "details": [
       {
-        "appID": "556XCHW6K7.com.dipnot.app",
+        "appID": "556XCHW6K7.com.vacstudio.dipnot",
         "paths": ["*"]
       }
     ]
   },
   "webcredentials": {
-    "apps": ["556XCHW6K7.com.dipnot.app"]
+    "apps": ["556XCHW6K7.com.vacstudio.dipnot"]
   }
 }
