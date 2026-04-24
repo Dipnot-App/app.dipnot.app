@@ -202,16 +202,41 @@
     </main>
 
     <script>
-      // Show the "Open in app" button when we're on an /article/<id> path.
-      // The custom scheme handoff is harmless if the app is not installed —
-      // the OS silently ignores the navigation and the user stays on this page.
+      // Show the "Open in app" button when we're on an /article/<id> path,
+      // and auto-attempt the deep link on mobile. Universal Links / App
+      // Links should already route installed users straight into the app —
+      // this page is the fallback for cases where that routing fails (e.g.
+      // Twitter in-app browser, long-pressed link, copy-paste into a new
+      // tab). The button stays as a backup if the auto-redirect no-ops.
       (function () {
         var m = window.location.pathname.match(/^\/article\/([^\/?#]+)/);
         var btn = document.getElementById("open-in-app");
-        if (m && btn) {
-          btn.setAttribute("href", "dipnotapp://article/" + m[1]);
-          btn.hidden = false;
-        }
+        if (!m || !btn) return;
+
+        var deepLink = "dipnotapp://article/" + m[1];
+        btn.setAttribute("href", deepLink);
+        btn.hidden = false;
+
+        // why: only auto-redirect on mobile. On desktop, custom-scheme
+        // navigation either no-ops or pops an OS prompt that's worse than
+        // just letting the user click the button.
+        var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (!isMobile) return;
+
+        // why: if the page becomes hidden, the OS handed off to the app —
+        // bail so we don't re-attempt when the user comes back.
+        var handedOff = false;
+        document.addEventListener("visibilitychange", function () {
+          if (document.hidden) handedOff = true;
+        });
+
+        // why: small delay so the fallback page paints once before we try
+        // the scheme. If the app isn't installed the navigation silently
+        // fails and the user is left looking at this page.
+        setTimeout(function () {
+          if (handedOff) return;
+          window.location.href = deepLink;
+        }, 150);
       })();
     </script>
   </body>
