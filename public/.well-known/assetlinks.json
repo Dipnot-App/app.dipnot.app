@@ -3,7 +3,7 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.dipnot.app",
+      "package_name": "com.vacstudio.dipnot",
       "sha256_cert_fingerprints": [
         "76:C5:87:A6:E4:1A:9A:C6:FA:A9:79:A8:6B:FB:C6:79:F5:15:49:55:A0:91:47:48:A0:FA:1C:2D:82:79:D6:DD"
       ]
