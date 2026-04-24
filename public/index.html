@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dipnot</title>
+    <meta
+      name="description"
+      content="Dipnot mobil uygulamasında kürate edilmiş içeriği keşfet."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Dipnot" />
+    <meta property="og:title" content="Dipnot" />
+    <meta
+      property="og:description"
+      content="Dipnot mobil uygulamasında kürate edilmiş içeriği keşfet."
+    />
+    <meta property="og:url" content="https://app.dipnot.app/" />
+    <meta property="og:image" content="https://app.dipnot.app/og-image.svg" />
+    <meta property="og:locale" content="tr_TR" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dipnot" />
+    <meta
+      name="twitter:description"
+      content="Dipnot mobil uygulamasında kürate edilmiş içeriği keşfet."
+    />
+    <meta name="twitter:image" content="https://app.dipnot.app/og-image.svg" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #131b26;
+        --accent: #6ad0e3;
+        --text: #ffffff;
+        --text-muted: rgba(255, 255, 255, 0.68);
+        --text-subtle: rgba(255, 255, 255, 0.45);
+        --border: rgba(255, 255, 255, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 420px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .logo {
+        width: 96px;
+        height: 96px;
+        margin-bottom: 8px;
+      }
+
+      h1 {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      .tagline {
+        font-size: 16px;
+        color: var(--text-muted);
+        max-width: 320px;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 28px;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: transform 120ms ease, opacity 120ms ease;
+        min-width: 220px;
+      }
+
+      .cta-primary {
+        background: var(--accent);
+        color: var(--bg);
+      }
+
+      .cta-primary:hover {
+        transform: translateY(-1px);
+      }
+
+      .cta-primary:active {
+        transform: translateY(0);
+        opacity: 0.9;
+      }
+
+      .footer {
+        margin-top: 16px;
+        font-size: 13px;
+        color: var(--text-subtle);
+      }
+
+      .footer a {
+        color: var(--text-muted);
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        color: var(--accent);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .cta-primary:hover {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <img src="/assets/logo-white.svg" alt="Dipnot logo" class="logo" />
+      <h1>Dipnot</h1>
+      <p class="tagline">
+        Kürate edilmiş içerik ve makaleler. Mobil uygulama yakında App Store ve
+        Google Play'de.
+      </p>
+      <a href="https://dipnot.app" class="cta cta-primary">dipnot.app'a git</a>
+      <p class="footer">&copy; Dipnot</p>
+    </main>
+  </body>
+</html>
