@@ -156,12 +156,82 @@
     <main class="container">
       <img src="/assets/logo-white.svg" alt="Dipnot logo" class="logo" />
       <h1>Dipnot</h1>
-      <p class="tagline">
-        Kürate edilmiş içerik ve makaleler. Mobil uygulama yakında App Store ve
-        Google Play'de.
-      </p>
-      <a href="https://dipnot.app" class="cta cta-primary">dipnot.app'a git</a>
+      <p class="tagline">Dipnot uygulamasına yönlendiriliyorsun…</p>
+      <div class="actions">
+        <a
+          id="store-ios"
+          class="cta cta-primary"
+          href="https://apps.apple.com/app/id6757102330"
+          hidden
+          >App Store'dan indir</a
+        >
+        <a
+          id="store-android"
+          class="cta cta-primary"
+          href="https://play.google.com/store/apps/details?id=com.vacstudio.dipnot"
+          hidden
+          >Google Play'den indir</a
+        >
+        <a href="https://dipnot.app" class="cta cta-secondary"
+          >dipnot.app'a git</a
+        >
+      </div>
       <p class="footer">&copy; Dipnot</p>
     </main>
+
+    <script>
+      // app.dipnot.app is the app's front door. Send every visitor to the
+      // app itself, or to the right store when it isn't installed:
+      //
+      // - Installed users who *tap* an app.dipnot.app link from another app
+      //   never reach this page — Universal Links (iOS, AASA paths `*`) /
+      //   verified App Links (Android, assetlinks.json) open the app first.
+      // - This page is the fallback for the rest: a directly-typed URL, an
+      //   in-app browser (Instagram/Twitter) that ignores UL, or a copy-paste
+      //   into a new tab. For those we try the `dipnotapp://` scheme (opens
+      //   the app if installed) and, failing that, redirect to the platform
+      //   store. Desktop just shows the store buttons — custom-scheme nav
+      //   there only pops an OS prompt.
+      (function () {
+        var ua = navigator.userAgent || "";
+        var isIOS = /iPhone|iPad|iPod/i.test(ua);
+        var isAndroid = /Android/i.test(ua);
+
+        var IOS_STORE = "https://apps.apple.com/app/id6757102330";
+        var ANDROID_STORE =
+          "https://play.google.com/store/apps/details?id=com.vacstudio.dipnot";
+
+        // Reveal the matching store button so there's always a visible,
+        // tappable fallback if the auto-redirect is blocked.
+        var storeUrl = isIOS ? IOS_STORE : isAndroid ? ANDROID_STORE : null;
+        var btn = document.getElementById(isIOS ? "store-ios" : "store-android");
+        if (btn) btn.hidden = false;
+
+        // Desktop: no scheme attempt, no auto-redirect — the tagline +
+        // buttons stand on their own.
+        if (!storeUrl) {
+          document.querySelector(".tagline").textContent =
+            "Dipnot mobil uygulaması App Store ve Google Play'de.";
+          return;
+        }
+
+        // why: if the page becomes hidden the OS handed off to the app —
+        // bail so we don't bounce the user to the store on their return.
+        var handedOff = false;
+        document.addEventListener("visibilitychange", function () {
+          if (document.hidden) handedOff = true;
+        });
+
+        // Try to open the installed app first…
+        window.location.href = "dipnotapp://";
+
+        // …then fall through to the store. The delay lets an installed app
+        // take over (which hides the page and sets `handedOff`); if nothing
+        // claims the scheme we land on the store.
+        setTimeout(function () {
+          if (!handedOff) window.location.href = storeUrl;
+        }, 1200);
+      })();
+    </script>
   </body>
 </html>
