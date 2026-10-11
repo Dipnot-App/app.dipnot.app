@@ -6,90 +6,35 @@
     <title>Sayfa bulunamadı · Dipnot</title>
     <meta name="robots" content="noindex" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta name="theme-color" content="#338596" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/fonts/inter-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
-
-    <style>
-      :root {
-        --bg: #131b26;
-        --accent: #6ad0e3;
-        --text: #ffffff;
-        --text-muted: rgba(255, 255, 255, 0.68);
-        --text-subtle: rgba(255, 255, 255, 0.45);
-      }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      html,
-      body {
-        height: 100%;
-      }
-
-      body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
-        font-size: 16px;
-        line-height: 1.5;
-        -webkit-font-smoothing: antialiased;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-        text-align: center;
-      }
-
-      .container {
-        max-width: 360px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-      }
-
-      .logo {
-        width: 72px;
-        height: 72px;
-      }
-
-      h1 {
-        font-size: 24px;
-        font-weight: 600;
-        letter-spacing: -0.01em;
-      }
-
-      .msg {
-        color: var(--text-muted);
-      }
-
-      .link {
-        color: var(--accent);
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .link:hover {
-        text-decoration: underline;
-      }
-    </style>
+    <link rel="stylesheet" href="/assets/site.css" />
   </head>
   <body>
-    <main class="container">
-      <img src="/assets/logo-white.svg" alt="Dipnot logo" class="logo" />
+    <div class="ocean" aria-hidden="true">
+      <div class="ocean__rays"></div>
+      <div class="ocean__glow ocean__glow--a"></div>
+      <div class="ocean__glow ocean__glow--b"></div>
+    </div>
+    <main class="card glass">
+      <img
+        src="/assets/app-icon.svg"
+        alt=""
+        class="app-icon"
+        width="88"
+        height="88"
+      />
       <h1>Sayfa bulunamadı</h1>
-      <p class="msg">
-        Aradığın sayfa burada yok. Ana sayfaya dönebilirsin.
-      </p>
-      <a href="https://dipnot.app" class="link">dipnot.app'a git &rsaquo;</a>
+      <p class="msg">Aradığın sayfa burada yok. Ana sayfaya dönebilirsin.</p>
+      <div class="actions">
+        <a href="https://dipnot.app" class="link">dipnot.app'a git &rsaquo;</a>
+      </div>
     </main>
   </body>
 </html>
