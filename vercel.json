@@ -2,7 +2,8 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/article/(.*)", "destination": "/article.html" },
-    { "source": "/article", "destination": "/article.html" }
+    { "source": "/article", "destination": "/article.html" },
+    { "source": "/yarisma-2026", "destination": "/yarisma-2026.html" }
   ],
   "headers": [
     {
