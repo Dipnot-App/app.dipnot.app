@@ -34,8 +34,10 @@
 /* ---- Tokens (same values as dipnot.app css/styles.css) ---------------- */
 
 :root {
-  --teal: oklch(0.547 0.076 210); /* #338596 */
-  --teal-bright: oklch(0.7 0.1 208); /* #6ad0e3 */
+  /* why hex: same colours as canon (product-design/color.md, single Dipnot
+     Teal 2026-10-12), but hex also renders in browsers without oklch(). */
+  --teal: #018095; /* oklch(0.552 0.097 214.5) */
+  --teal-bright: #6ad0e3; /* oklch(0.803 0.098 211.3) */
   --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 
