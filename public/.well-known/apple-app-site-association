@@ -5,6 +5,10 @@
       {
         "appID": "556XCHW6K7.com.vacstudio.dipnot",
         "paths": ["*"]
+      },
+      {
+        "appID": "556XCHW6K7.com.vacstudio.dipnot.preview",
+        "paths": ["*"]
       }
     ]
   },
